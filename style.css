@@ -1,0 +1,101 @@
+/* GERAL */
+*{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.1em;
+}
+
+/* BOTÃO */
+button {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color: #e2e2e2;
+    position: relative;
+}
+
+.delete-button {
+    margin-left: 10px;
+}
+
+.edit::after{
+    content: '';
+    background-image: url('/img/icone_editar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
+    z-index: 100000;
+    height: 90%;
+}
+
+.areaBotoes button:not(:last-of-type) {
+    margin-right: 5px;
+}
+
+/* CONTEUDO */
+.conteudo-principal {
+    max-width: 600px;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    padding: 40px 15px;
+    background: #8500ff;
+    border-radius: 20px;
+}
+
+/* BOTOES PRINCIPAIS */
+.btn-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* TEXTAREA */
+.texto textarea {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+/* TAREFA */
+.tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background: #f7f7f7;
+}
+
+.tarefa.completed{
+    background: #58ffab;
+}
+
+/* EDIÇÃO DAS TAREFAS */
+.areaText{
+    box-sizing: border-box;
+    width: auto;
+}
+
+.edit-text {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    background: #d3d3d3;
+    border-radius: 5px;
+    word-wrap: break-word;
+    margin: 0 10px;
+}
