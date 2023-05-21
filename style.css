@@ -1,24 +1,36 @@
 /* GERAL */
-body{
-    background-color: #f3f8f4;
+:root {
+    --azul-médio: #134074;
+    --azul-escuro: #0b2545;
+    --azul-claro: #8da9c4;
+    --claro: #eef4ed;
+}
+
+body {
+    background-color: var(--claro);
 }
 
 * {
+    color: var(--azul-escuro);
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     line-height: 1.1em;
     margin: 0;
 }
 
-h1,h2,h3,h4,h5{
+h1,
+h2,
+h3,
+h4,
+h5 {
     text-align: center;
 }
 
-h1{
+h1 {
     font-size: 30px;
 }
 
-h2{
+h2 {
     font-size: 22px;
 }
 
@@ -28,24 +40,26 @@ main {
     align-items: center;
 }
 
-.linha:not(.btn-principal){
-    margin: 30px auto;;
+.linha:not(.btn-principal) {
+    margin: 30px auto;
+    ;
 }
 
 /* BOTÃO */
 button {
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 8px 10px;
     border-radius: 50px;
     border: none;
-    background-color: #244235;
+    background-color: transparent;
     position: relative;
-    color: #f3f8f4;
-    transition: .4s ease;
+    color: var(--azul-escuro);
+    transition: .5s ease;
 }
 
-button:hover{
-background-color: #111a17;
+button:hover {
+    background-color: var(--azul-escuro);
+    color: var(--claro);
 }
 
 
@@ -61,8 +75,9 @@ background-color: #111a17;
     margin: 50px auto;
     position: relative;
     padding: 40px 15px;
-    background: #8500ff;
+    background: var(--azul-claro);
     border-radius: 2px;
+    box-shadow: 0 0 10px #00000069;
 }
 
 /* BOTOES PRINCIPAIS */
@@ -73,11 +88,15 @@ background-color: #111a17;
 }
 
 /* TEXTAREA */
+.texto {
+    margin-bottom: 10px !important;
+}
+
 .texto textarea {
     width: 100%;
     height: auto;
     padding: 10px;
-    border: 1px solid #d3d3d3;
+    border: 1px solid var(--claro);
     resize: none;
     box-sizing: border-box;
     border-radius: 2px;
@@ -92,11 +111,11 @@ background-color: #111a17;
     padding: 5px;
     border-radius: 2px;
     margin-bottom: 15px;
-    background: #f7f7f7;
+    background: var(--claro);
 }
 
-.tarefa.ui-sortable-helper{
-
+.tarefa.ui-sortable-helper {
+    box-shadow: 0 0 10px #00021885;
 }
 
 .tarefa.completed {
@@ -113,8 +132,8 @@ background-color: #111a17;
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
-    border: 1px solid #d3d3d3;
-    background: #d3d3d3;
+    border: 1px solid var(--claro);
+    background: var(--claro);
     border-radius: 5px;
     word-wrap: break-word;
     margin: 0 10px;
