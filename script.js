@@ -67,10 +67,10 @@ function addTask(text) {
 
             areaCheck.removeChild(checkbox);
 
-            const input = document.createElement('input');
+            const input = document.createElement('textarea');
             input.type = 'text';
-            input.classList.add('edit-text');
             input.id = 'task-input';
+            input.classList.add('edit-text');
             input.value = taskText.textContent;
 
             taskItem.setAttribute("draggable", "false");
@@ -220,8 +220,14 @@ document.getElementById('delete-all').addEventListener('click', function () {
 
 // Função para a textarea ficar do tamanho do texto escrito
 const textarea = document.getElementById('task-input');
+const areainput = document.getElementsByClassName('edit-text');
 
 textarea.addEventListener('input', function () {
+    this.style.height = 'auto'; // Redefine a altura para o tamanho padrão
+    this.style.height = this.scrollHeight + 'px'; // Ajusta a altura com base no scrollHeight
+});
+
+areainput.addEventListener('input', function () {
     this.style.height = 'auto'; // Redefine a altura para o tamanho padrão
     this.style.height = this.scrollHeight + 'px'; // Ajusta a altura com base no scrollHeight
 });

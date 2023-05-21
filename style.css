@@ -18,11 +18,7 @@ body {
     margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5 {
+h1,h2,h3,h4,h5 {
     text-align: center;
 }
 
@@ -38,6 +34,23 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+*::-webkit-scrollbar{
+    width: 13px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--azul-médio);
+    border-radius: 50px;
+    border: 2px solid var(--claro);
+}
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--azul-escuro);
+}
+  
+*::-webkit-scrollbar-track {
+    background-color: var(--claro);
 }
 
 .linha:not(.btn-principal) {
@@ -58,8 +71,7 @@ button {
 }
 
 button:hover {
-    background-color: var(--azul-escuro);
-    color: var(--claro);
+    color: var(--azul-claro);
 }
 
 
@@ -122,21 +134,36 @@ button:hover {
     background: #58ffab;
 }
 
-/* EDIÇÃO DAS TAREFAS */
-.areaText {
-    box-sizing: border-box;
-    width: auto;
+.areaCheck {
+    width: 6%;
+    margin-right: 1%;
 }
 
-.edit-text {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid var(--claro);
-    background: var(--claro);
-    border-radius: 5px;
+.areaText {
+    width: 79%;
+    margin-right: 1%;
+}
+
+.areaText p {
     word-wrap: break-word;
-    margin: 0 10px;
+}
+
+.areaBotoes {
+    width: 13%;
+}
+
+
+
+/* EDIÇÃO DAS TAREFAS */
+.areaText textarea {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border: 1px solid var(--azul-médio);
+    resize: none;
+    box-sizing: border-box;
+    border-radius: 2px;
+    overflow: hidden;
 }
 
 /* RODAPE */
