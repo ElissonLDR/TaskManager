@@ -163,11 +163,10 @@ button {
     width: 100%;
     height: auto;
     padding: 10px;
-    border: 1px solid var(--cor-1);
+    border: none;
     resize: vertical;
     box-sizing: border-box;
     border-radius: 2px;
-    overflow: hidden;
     color: var(--cor-3);
 }
 
