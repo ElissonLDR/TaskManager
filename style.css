@@ -1,4 +1,8 @@
 /* GERAL */
+body{
+    background-color: #f3f8f4;
+}
+
 * {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
@@ -34,23 +38,17 @@ button {
     padding: 10px 15px;
     border-radius: 50px;
     border: none;
-    background-color: #e2e2e2;
+    background-color: #244235;
     position: relative;
+    color: #f3f8f4;
+    transition: .4s ease;
 }
 
-.edit::after {
-    content: '';
-    background-image: url('/img/icone_editar.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    z-index: 100000;
-    height: 90%;
+button:hover{
+background-color: #111a17;
 }
+
+
 
 .areaBotoes button:not(:last-of-type) {
     margin-right: 5px;
@@ -64,7 +62,7 @@ button {
     position: relative;
     padding: 40px 15px;
     background: #8500ff;
-    border-radius: 20px;
+    border-radius: 2px;
 }
 
 /* BOTOES PRINCIPAIS */
@@ -82,7 +80,7 @@ button {
     border: 1px solid #d3d3d3;
     resize: none;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: 2px;
     overflow: hidden;
 }
 
@@ -92,13 +90,13 @@ button {
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 2px;
     margin-bottom: 15px;
     background: #f7f7f7;
 }
 
 .tarefa.ui-sortable-helper{
-    
+
 }
 
 .tarefa.completed {

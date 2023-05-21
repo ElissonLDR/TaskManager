@@ -229,6 +229,6 @@ textarea.addEventListener('input', function () {
 
 // Função para reordenar as tarefas com as bibliotecas jQuery e jQuery UI
 $(function () {
-    $("#task-list").sortable();
+    $("#task-list").sortable().disableSelection();
 });
 // Fim função reordenação
