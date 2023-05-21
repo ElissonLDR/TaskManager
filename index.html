@@ -9,30 +9,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+
     <title>TaskManager</title>
 </head>
 
 <body>
 
-    <main class="conteudo-principal">
+    <main>
+        <div class="conteudo-principal">
+            <div class="linha title">
+                <h1>TaskManager</h1>
+                <h2>Gerenciador de tarefas</h2>
+            </div>
 
-        <div id="task-list"></div>
+            <div id="task-list" class="linha"></div>
 
-        <div class="texto">
-            <textarea id="task-input" placeholder="Digite suas tarefas aqui"></textarea>
-        </div>
+            <div class="linha texto">
+                <textarea id="task-input" placeholder="Digite suas tarefas aqui"></textarea>
+            </div>
 
-        <div class="btn-principal">
-            <button id="add" class="fa-solid fa-plus"></button>
-            <button id="delete-all">Excluir todas as tarefas</button>
-
+            <div class="linha btn-principal">
+                <button id="add" class="fa-solid fa-plus"></button>
+                <button id="delete-all">Excluir todas as tarefas</button>
+            </div>
         </div>
 
     </main>
 
-    <footer></footer>
-    <script src="script.js"></script>
-    <script src="https://kit.fontawesome.com/ecb932658b.js" crossorigin="anonymous"></script>
+    <footer>
+        <div class="rodape">
+            <img src="img/logotipo-ldr.png" alt="Logotipo LDR" class="img-logo">
+            <p>Desenvolvido por LDR Creation</p>
+        </div>
+    </footer>
+
 </body>
+<script src="script.js"></script>
+<script src="https://kit.fontawesome.com/ecb932658b.js" crossorigin="anonymous"></script>
 
 </html>

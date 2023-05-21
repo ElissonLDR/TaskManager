@@ -1,12 +1,3 @@
-// Função para a textarea ficar do tamanho do texto escrito
-const textarea = document.getElementById('task-input');
-
-textarea.addEventListener('input', function() {
-  this.style.height = 'auto'; // Redefine a altura para o tamanho padrão
-  this.style.height = this.scrollHeight + 'px'; // Ajusta a altura com base no scrollHeight
-});
-
-
 // Adicionar uma tarefa à lista
 function addTask(text) {
     const taskList = document.getElementById('task-list');
@@ -18,17 +9,11 @@ function addTask(text) {
     const taskText = document.createElement('p');
     const deleteButton = createDeleteButton(taskItem);
     const editButton = createEditButton(taskItem, taskText);
-    const upButton = document.createElement('button');
-    const downButton = document.createElement('button');
 
     taskText.textContent = text;
     checkbox.classList.add("fa-solid", "fa-check");
 
-    upButton.classList.add("fa-solid", "fa-arrow-up");
-    downButton.classList.add("fa-solid", "fa-arrow-down");
 
-    upButton.classList.add("move", "up");
-    downButton.classList.add("move", "down");
 
     taskItem.classList.add("tarefa");
     taskItem.setAttribute("draggable", "true");
@@ -45,8 +30,6 @@ function addTask(text) {
 
     taskItem.appendChild(areaBotoes);
     areaBotoes.appendChild(editButton);
-    areaBotoes.appendChild(upButton);
-    areaBotoes.appendChild(downButton);
     areaBotoes.appendChild(deleteButton);
     areaBotoes.classList.add("areaBotoes");
 
@@ -74,25 +57,6 @@ function addTask(text) {
     }
     // Fim mudança ícone editar
 
-    // Event listener para mover a tarefa para cima
-    upButton.addEventListener('click', function () {
-        const previousItem = taskItem.previousElementSibling;
-        if (previousItem) {
-            taskItem.parentNode.insertBefore(taskItem, previousItem);
-            updateTaskPositions();
-        }
-    });
-    // Fim mover tarefa para cima
-
-    // Event listener para mover a tarefa para baixo
-    downButton.addEventListener('click', function () {
-        const nextItem = taskItem.nextElementSibling;
-        if (nextItem) {
-            taskItem.parentNode.insertBefore(nextItem, taskItem);
-            updateTaskPositions();
-        }
-    });
-    // Fim mover a tarefa para baixo
 
     // Função para criar um botão de edição de tarefa
     function createEditButton(taskItem, taskText) {
@@ -106,16 +70,16 @@ function addTask(text) {
             const input = document.createElement('input');
             input.type = 'text';
             input.classList.add('edit-text');
-            input.id='task-input';
+            input.id = 'task-input';
             input.value = taskText.textContent;
 
             taskItem.setAttribute("draggable", "false");
 
             const saveButton = document.createElement('button');
-            saveButton.classList.add("fa-solid","fa-floppy-disk");
+            saveButton.classList.add("fa-solid", "fa-floppy-disk");
 
             const cancelButton = document.createElement('button');
-            cancelButton.classList.add("fa-solid","fa-xmark");
+            cancelButton.classList.add("fa-solid", "fa-xmark");
 
             // Armazena o texto original antes de iniciar a edição
             const originalText = taskText.textContent;
@@ -148,22 +112,20 @@ function addTask(text) {
                     areaCheck.appendChild(checkbox);
                 }
             });
-       
+
             document.addEventListener('keydown', function (event) {
                 if (event.key === 'Escape') {
-                  cancelEditing();
-                  taskItem.setAttribute('draggable', 'true');
-                  areaCheck.appendChild(checkbox);
+                    cancelEditing();
+                    taskItem.setAttribute('draggable', 'true');
+                    areaCheck.appendChild(checkbox);
                 }
-              });
+            });
 
             areaText.replaceChild(input, taskText);
             areaBotoes.removeChild(editButton);
             areaBotoes.removeChild(deleteButton);
             areaBotoes.appendChild(saveButton);
             areaBotoes.appendChild(cancelButton);
-            areaBotoes.removeChild(upButton);
-            areaBotoes.removeChild(downButton);
 
             function saveChanges() {
                 taskText.textContent = input.value;
@@ -171,8 +133,6 @@ function addTask(text) {
                 areaBotoes.removeChild(saveButton);
                 areaBotoes.removeChild(cancelButton);
                 areaBotoes.appendChild(editButton);
-                areaBotoes.appendChild(upButton);
-                areaBotoes.appendChild(downButton);
                 areaBotoes.appendChild(deleteButton);
             }
 
@@ -182,8 +142,6 @@ function addTask(text) {
                 areaBotoes.removeChild(saveButton);
                 areaBotoes.removeChild(cancelButton);
                 areaBotoes.appendChild(editButton);
-                areaBotoes.appendChild(upButton);
-                areaBotoes.appendChild(downButton);
                 areaBotoes.appendChild(deleteButton);
             }
 
@@ -259,3 +217,18 @@ document.getElementById('delete-all').addEventListener('click', function () {
     }
 });
 // Fim exclusão todas tarefas
+
+// Função para a textarea ficar do tamanho do texto escrito
+const textarea = document.getElementById('task-input');
+
+textarea.addEventListener('input', function () {
+    this.style.height = 'auto'; // Redefine a altura para o tamanho padrão
+    this.style.height = this.scrollHeight + 'px'; // Ajusta a altura com base no scrollHeight
+});
+// Fim função textarea tamanho
+
+// Função para reordenar as tarefas com as bibliotecas jQuery e jQuery UI
+$(function () {
+    $("#task-list").sortable();
+});
+// Fim função reordenação
