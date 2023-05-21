@@ -13,8 +13,6 @@ function addTask(text) {
     taskText.textContent = text;
     checkbox.classList.add("fa-solid", "fa-check");
 
-
-
     taskItem.classList.add("tarefa");
     taskItem.setAttribute("draggable", "true");
 
@@ -41,9 +39,31 @@ function addTask(text) {
             taskItem.classList.add('completed');
         }
         mudaBotaoEditar();
-
+        checkCompletedTasks();
     });
     // fim adicionar classe completed
+
+    // Função para verificar se todas as tarefas estão concluídas
+    function checkCompletedTasks() {
+        const allTasks = document.querySelectorAll('.tarefa');
+        const completedTasks = document.querySelectorAll('.completed');
+        let message = document.getElementById('completed-message');
+
+        if (allTasks.length === completedTasks.length) {
+            if (!message) {
+                message = document.createElement('p');
+                message.id = 'completed-message';
+                message.textContent = `Você concluiu ${completedTasks.length} tarefas.`;
+                taskList.appendChild(message);
+                element.style.marginBottom = '10px';
+            }
+        } else {
+            if (message) {
+                taskList.removeChild(message);
+            }
+        }
+    }
+    // Fim verificar tarefas concluídas
 
     // Função para mudar o ícone do botão editar
     function mudaBotaoEditar() {
@@ -150,6 +170,7 @@ function addTask(text) {
         return editButton;
     }
     // Fim botão de edição de tarefa
+    checkCompletedTasks();
 }
 // Fim adicionar uma tarefa à lista
 
@@ -173,7 +194,7 @@ function createDeleteButton(taskItem) {
 // Fim exclusão de tarefa
 
 // Obter o valor da textarea e adicionar as tarefas ao pressionar Enter
-document.getElementById('task-input').addEventListener('keypress', function (event) {
+document.getElementById('task-input').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
         event.preventDefault(); // Evita quebra de linha na textarea
 
@@ -220,17 +241,12 @@ document.getElementById('delete-all').addEventListener('click', function () {
 
 // Função para a textarea ficar do tamanho do texto escrito
 const textarea = document.getElementById('task-input');
-const areainput = document.getElementsByClassName('edit-text');
 
 textarea.addEventListener('input', function () {
     this.style.height = 'auto'; // Redefine a altura para o tamanho padrão
     this.style.height = this.scrollHeight + 'px'; // Ajusta a altura com base no scrollHeight
 });
 
-areainput.addEventListener('input', function () {
-    this.style.height = 'auto'; // Redefine a altura para o tamanho padrão
-    this.style.height = this.scrollHeight + 'px'; // Ajusta a altura com base no scrollHeight
-});
 // Fim função textarea tamanho
 
 // Função para reordenar as tarefas com as bibliotecas jQuery e jQuery UI
@@ -238,3 +254,4 @@ $(function () {
     $("#task-list").sortable();
 });
 // Fim função reordenação
+

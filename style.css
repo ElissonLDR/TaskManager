@@ -1,17 +1,18 @@
 /* GERAL */
 :root {
-    --azul-médio: #134074;
-    --azul-escuro: #0b2545;
-    --azul-claro: #8da9c4;
-    --claro: #eef4ed;
+    --branco: #f3f3f3;
+    --cor-1: #ccd4dd;
+    --cor-2: #446063;
+    --cor-3: #141e1d;
+    --cor-4: #090f0f;
 }
 
 body {
-    background-color: var(--claro);
+    background-color: var(--cor-2);
 }
 
 * {
-    color: var(--azul-escuro);
+    color: var(--branco);
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     line-height: 1.1em;
@@ -41,16 +42,16 @@ main {
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: var(--azul-médio);
+    background-color: var(--cor-3);
     border-radius: 50px;
-    border: 2px solid var(--claro);
+    border: 2px solid var(--cor-2);
 }
 *::-webkit-scrollbar-thumb:hover {
-    background-color: var(--azul-escuro);
+    background-color: var(--cor-4);
 }
   
 *::-webkit-scrollbar-track {
-    background-color: var(--claro);
+    background-color: var(--cor-2);
 }
 
 .linha:not(.btn-principal) {
@@ -66,15 +67,17 @@ button {
     border: none;
     background-color: transparent;
     position: relative;
-    color: var(--azul-escuro);
+    color: var(--cor-1);
     transition: .5s ease;
 }
 
-button:hover {
-    color: var(--azul-claro);
+.btn-principal button:hover {
+    color: var(--cor-2);
 }
 
-
+.areaCheck button:hover,.areaBotoes button:hover{
+    color: var(--cor-3);
+}
 
 .areaBotoes button:not(:last-of-type) {
     margin-right: 5px;
@@ -87,7 +90,7 @@ button:hover {
     margin: 50px auto;
     position: relative;
     padding: 40px 15px;
-    background: var(--azul-claro);
+    background: var(--cor-3);
     border-radius: 2px;
     box-shadow: 0 0 10px #00000069;
 }
@@ -108,11 +111,12 @@ button:hover {
     width: 100%;
     height: auto;
     padding: 10px;
-    border: 1px solid var(--claro);
+    border: 1px solid var(--cor-1);
     resize: none;
     box-sizing: border-box;
     border-radius: 2px;
     overflow: hidden;
+    color: var(--cor-3);
 }
 
 /* TAREFA */
@@ -123,7 +127,7 @@ button:hover {
     padding: 5px;
     border-radius: 2px;
     margin-bottom: 15px;
-    background: var(--claro);
+    background: var(--cor-2);
 }
 
 .tarefa.ui-sortable-helper {
@@ -131,7 +135,7 @@ button:hover {
 }
 
 .tarefa.completed {
-    background: #58ffab;
+    background: #22993b;
 }
 
 .areaCheck {
@@ -159,11 +163,12 @@ button:hover {
     width: 100%;
     height: auto;
     padding: 10px;
-    border: 1px solid var(--azul-médio);
-    resize: none;
+    border: 1px solid var(--cor-1);
+    resize: vertical;
     box-sizing: border-box;
     border-radius: 2px;
     overflow: hidden;
+    color: var(--cor-3);
 }
 
 /* RODAPE */
