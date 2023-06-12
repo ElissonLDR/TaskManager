@@ -105,11 +105,11 @@ function addTask(text) {
             const originalText = taskText.textContent;
 
             saveButton.addEventListener('click', function () {
-
-                const shouldEdit = confirm('Deseja realmente editar esta tarefa?');
-                if (!shouldEdit) {
-                    return;
-                }
+//CRIAR MODAL PARA CONFIRMAÇÃO
+//                 const shouldEdit = confirm('Deseja realmente editar esta tarefa?');
+//                 if (!shouldEdit) {
+//                     return;
+//                 }
                 saveChanges();
                 taskItem.setAttribute("draggable", "true");
                 areaCheck.appendChild(checkbox);
@@ -122,11 +122,11 @@ function addTask(text) {
             });
 
             input.addEventListener('keypress', function (event) {
-                if (event.key === 'Enter') {
-                    const shouldEdit = confirm('Deseja realmente editar esta tarefa?');
-                    if (!shouldEdit) {
-                        return;
-                    }
+//                 if (event.key === 'Enter') {
+//                     const shouldEdit = confirm('Deseja realmente editar esta tarefa?');
+//                     if (!shouldEdit) {
+//                         return;
+//                     }
                     saveChanges();
                     taskItem.setAttribute("draggable", "true");
                     areaCheck.appendChild(checkbox);
@@ -182,11 +182,11 @@ function createDeleteButton(taskItem) {
 
     deleteButton.addEventListener('click', function () {
         // Exibir uma caixa de diálogo de confirmação
-        const confirmation = confirm('Tem certeza que deseja excluir esta tarefa?');
+//         const confirmation = confirm('Tem certeza que deseja excluir esta tarefa?');
 
-        if (confirmation) {
+//         if (confirmation) {
             taskItem.remove();
-        }
+//         }
     });
 
     return deleteButton;
@@ -230,12 +230,12 @@ document.getElementById('add').addEventListener('click', function () {
 // Excluir todas as tarefas ao pressionar o botão
 document.getElementById('delete-all').addEventListener('click', function () {
     // Exibir uma caixa de diálogo de confirmação
-    const confirmation = confirm('Tem certeza que deseja excluir todas as tarefas?');
+//     const confirmation = confirm('Tem certeza que deseja excluir todas as tarefas?');
 
-    if (confirmation) {
+//     if (confirmation) {
         const taskList = document.getElementById('task-list');
         taskList.innerHTML = '';
-    }
+//     }
 });
 // Fim exclusão todas tarefas
 
