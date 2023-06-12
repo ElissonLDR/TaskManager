@@ -120,7 +120,6 @@ function addTask(text) {
                     saveChanges();
                     taskItem.setAttribute("draggable", "true");
                     areaCheck.appendChild(checkbox);
-                }
             });
 
             document.addEventListener('keydown', function (event) {
