@@ -184,3 +184,36 @@ button {
     border-radius: 500px;
     margin-bottom: 15px;
 }
+
+/* MODAL */
+.modal{
+    background: #090f0fcf;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 9999;
+    display: none;
+}
+
+.modal .content{
+    width: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: var(--cor-2);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.modal .btn-modal{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.modal button:hover{
+    transform: scale(1.8) !important;
+}

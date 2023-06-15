@@ -20,6 +20,16 @@
 <body>
 
     <main>
+        <section id="modal" class="modal">
+            <div class="content">
+                <h2>Tem certeza?</h2>
+                <div class="btn-modal">
+                    <button id="yes" class="fa-solid fa-check"></button>
+                    <button id="no" class="fa-solid fa-xmark"></button>
+                </div>
+            </div>
+        </section>
+
         <div class="conteudo-principal">
             <div class="linha title">
                 <h1>TaskManager</h1>
@@ -32,7 +42,7 @@
                 <textarea id="task-input" placeholder="Digite suas tarefas aqui"></textarea>
             </div>
 
-            <div class="linha btn-principal">
+            <div id="btn-principal" class="linha btn-principal">
                 <button id="add" class="fa-solid fa-plus"></button>
                 <button id="delete-all">Excluir todas as tarefas</button>
             </div>

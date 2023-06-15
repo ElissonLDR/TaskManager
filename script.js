@@ -1,3 +1,40 @@
+const modal = document.getElementById('modal');
+const confirmButton = document.getElementById('yes');
+const cancelButton = document.getElementById('no');
+
+// Função para abrir o modal
+function openModal() {
+    modal.style.display = 'block';
+}
+
+// Função para fechar o modal
+function closeModal() {
+    modal.style.display = 'none';
+}
+
+cancelButton.addEventListener('click', closeModal);
+
+
+// Função para desabilitar a Textarea quando abrir a ediçao da tarefa
+function DisableTextArea() {
+    const botoes = document.getElementById('btn-principal');
+    const textarea = document.getElementById('task-input');
+
+    botoes.style.pointerEvents = 'none';
+    textarea.style.pointerEvents = 'none';
+    textarea.style.opacity = '.5';
+}
+// Fim função desabilitar
+
+function EnableTextArea() {
+    const textarea = document.getElementById('task-input');
+    const botoes = document.getElementById('btn-principal');
+
+    botoes.style.pointerEvents = 'auto';
+    textarea.style.pointerEvents='auto';
+    textarea.style.opacity = '1';
+}
+
 // Adicionar uma tarefa à lista
 function addTask(text) {
     const taskList = document.getElementById('task-list');
@@ -85,6 +122,7 @@ function addTask(text) {
 
         editButton.addEventListener('click', function () {
 
+            DisableTextArea();
             areaCheck.removeChild(checkbox);
 
             const input = document.createElement('textarea');
@@ -105,9 +143,14 @@ function addTask(text) {
             const originalText = taskText.textContent;
 
             saveButton.addEventListener('click', function () {
-                saveChanges();
-                taskItem.setAttribute("draggable", "true");
-                areaCheck.appendChild(checkbox);
+                openModal();
+                confirmButton.addEventListener('click', () => {
+                    saveChanges();
+                    taskItem.setAttribute("draggable", "true");
+                    areaCheck.appendChild(checkbox);
+                    closeModal();
+                });
+                cancelButton.addEventListener('click', closeModal);
             });
 
             cancelButton.addEventListener('click', function () {
@@ -116,10 +159,17 @@ function addTask(text) {
                 areaCheck.appendChild(checkbox);
             });
 
-            input.addEventListener('keypress', function (event) {
-                    saveChanges();
-                    taskItem.setAttribute("draggable", "true");
-                    areaCheck.appendChild(checkbox);
+            input.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    openModal();
+                    confirmButton.addEventListener('click', () => {
+                        saveChanges();
+                        taskItem.setAttribute("draggable", "true");
+                        areaCheck.appendChild(checkbox);
+                        closeModal();
+                    });
+                    cancelButton.addEventListener('click', closeModal);
+                }
             });
 
             document.addEventListener('keydown', function (event) {
@@ -143,6 +193,7 @@ function addTask(text) {
                 areaBotoes.removeChild(cancelButton);
                 areaBotoes.appendChild(editButton);
                 areaBotoes.appendChild(deleteButton);
+                EnableTextArea();
             }
 
             function cancelEditing() {
@@ -152,6 +203,7 @@ function addTask(text) {
                 areaBotoes.removeChild(cancelButton);
                 areaBotoes.appendChild(editButton);
                 areaBotoes.appendChild(deleteButton);
+                EnableTextArea();
             }
 
         });
@@ -170,7 +222,7 @@ function createDeleteButton(taskItem) {
     deleteButton.classList.add('fa-solid', 'fa-trash');
 
     deleteButton.addEventListener('click', function () {
-            taskItem.remove();
+        taskItem.remove();
     });
 
     return deleteButton;
@@ -214,8 +266,8 @@ document.getElementById('add').addEventListener('click', function () {
 // Excluir todas as tarefas ao pressionar o botão
 document.getElementById('delete-all').addEventListener('click', function () {
 
-        const taskList = document.getElementById('task-list');
-        taskList.innerHTML = '';
+    const taskList = document.getElementById('task-list');
+    taskList.innerHTML = '';
 });
 // Fim exclusão todas tarefas
 
