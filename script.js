@@ -126,7 +126,7 @@ function addTask(text) {
                 const input = document.getElementById('task-input');
 
                 input.addEventListener('touchstart', function(event) {
-                    input.style.userSelect = 'text';
+                    input.focus();
                 });
             }
             DisableTextArea();
