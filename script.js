@@ -130,6 +130,8 @@ function addTask(text) {
             input.id = 'task-input';
             input.classList.add('edit-text');
             input.value = taskText.textContent;
+            input.style.userSelect = 'auto';
+            input.style.zIndex = '9999';
             input.focus();
 
             taskItem.setAttribute("draggable", "false");
