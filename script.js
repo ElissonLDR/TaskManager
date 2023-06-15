@@ -122,13 +122,6 @@ function addTask(text) {
 
         editButton.addEventListener('click', function () {
 
-            function MobSelect(){
-                const input = document.getElementById('task-input');
-
-                input.addEventListener('touchstart', function(event) {
-                    input.focus();
-                });
-            }
             DisableTextArea();
             areaCheck.removeChild(checkbox);
 
@@ -137,8 +130,7 @@ function addTask(text) {
             input.id = 'task-input';
             input.classList.add('edit-text');
             input.value = taskText.textContent;
-
-            MobSelect();
+            input.focus();
 
             taskItem.setAttribute("draggable", "false");
 

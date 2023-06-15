@@ -217,3 +217,15 @@ button {
 .modal button:hover{
     transform: scale(1.8) !important;
 }
+
+/* RESPONSIVO */
+@media screen and (max-width: 670px){
+    .areaCheck{ width: 12%; }
+    .areaBotoes{ width: 22%; }
+    .areaText{ width: 60%; }
+}
+
+@media screen and (max-width: 400px) {
+    .areaBotoes{ width: 24%; }
+    .areaText{ width: 58%; }
+}
