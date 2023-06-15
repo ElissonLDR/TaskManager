@@ -31,7 +31,7 @@ function EnableTextArea() {
     const botoes = document.getElementById('btn-principal');
 
     botoes.style.pointerEvents = 'auto';
-    textarea.style.pointerEvents='auto';
+    textarea.style.pointerEvents = 'auto';
     textarea.style.opacity = '1';
 }
 
@@ -222,7 +222,11 @@ function createDeleteButton(taskItem) {
     deleteButton.classList.add('fa-solid', 'fa-trash');
 
     deleteButton.addEventListener('click', function () {
-        taskItem.remove();
+        openModal();
+        confirmButton.addEventListener('click', () => {
+            taskItem.remove();
+            closeModal();
+        });
     });
 
     return deleteButton;
@@ -265,9 +269,12 @@ document.getElementById('add').addEventListener('click', function () {
 
 // Excluir todas as tarefas ao pressionar o botão
 document.getElementById('delete-all').addEventListener('click', function () {
-
-    const taskList = document.getElementById('task-list');
-    taskList.innerHTML = '';
+    openModal();
+    confirmButton.addEventListener('click', () => {
+        const taskList = document.getElementById('task-list');
+        taskList.innerHTML = '';
+        closeModal();
+    });
 });
 // Fim exclusão todas tarefas
 
